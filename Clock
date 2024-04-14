@@ -1,0 +1,23 @@
+-- Function to get and format the current time
+function getCurrentTime()
+    local currentTime = os.date("*t")
+    local formattedTime = string.format("%02d:%02d:%02d", currentTime.hour, currentTime.min, currentTime.sec)
+    return formattedTime
+end
+
+-- Function to print the clock
+function printClock()
+    while true do
+        -- Clears the screen
+        os.execute("clear")  -- Change "clear" to "cls" if you are using Windows
+        
+        -- Gets and prints the current time
+        print(getCurrentTime())
+        
+        -- Waits for one second
+        os.execute("sleep 1")  -- Change "sleep 1" to "timeout /t 1" if you are using Windows
+    end
+end
+
+-- Starts the clock
+printClock()
